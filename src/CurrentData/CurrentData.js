@@ -12,7 +12,7 @@ export default function CurrentData() {
         <DateTime />
       </div>
       <div className="icon">
-        <i class="fa-solid fa-cloud"></i>
+        <i className="fa-solid fa-cloud"></i>
       </div>
       <div className="current-temp">
         7
