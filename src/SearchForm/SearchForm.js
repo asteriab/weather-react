@@ -1,7 +1,7 @@
 import "./SearchForm.css";
 import { useState } from "react";
 
-export default function SearchForm() {
+export default function SearchForm(props) {
   let [city, setCity] = useState("");
 
   function updateCity(event) {
@@ -13,7 +13,7 @@ export default function SearchForm() {
     if (city === "") {
       return alert("Enter a city!");
     } else {
-      return alert(`Helo`);
+      return props.callApi(city);
     }
   }
 
@@ -25,7 +25,7 @@ export default function SearchForm() {
         placeholder="Enter your city"
         aria-label="Enter your city"
         aria-describedby="button-addon2"
-        onChange={updateCity}
+        onKeyUp={updateCity}
       ></input>
       <button
         className="btn btn-primary location-button"
