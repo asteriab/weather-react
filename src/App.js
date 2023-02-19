@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 function App(props) {
   const [city, setCity] = useState("");
+  const [weatherData, setWeatherData] = useState({});
 
   function callApi(city) {
     setCity(city);
@@ -18,13 +19,23 @@ function App(props) {
   }, [city]);
 
   function handleResponse(response) {
-    alert(`The weather in ${city} is ${response.data.main.temp}°C`);
+    console.log(city);
+    console.log(response.data.main);
+    setWeatherData({
+      ...weatherData,
+      temp: response.data.main.temp,
+      description: response.data.weather[0].description,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      city: city,
+    });
   }
 
   return (
     <div className="container">
       <SearchForm callApi={callApi} />
-      <CurrentData />
+      <CurrentData weatherData={weatherData} />
       <AuthorInfo />
     </div>
   );
