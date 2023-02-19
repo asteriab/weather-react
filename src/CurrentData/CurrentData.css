@@ -1,0 +1,40 @@
+.current-block {
+  padding: 30px;
+  margin: 15px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.city {
+  font-weight: bold;
+}
+
+.current-temp {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.celsius-link,
+.fahrenheit-link,
+.units {
+  color: #00204a;
+  font-size: 20px;
+  text-decoration: none;
+  vertical-align: text-top;
+  font-weight: bold;
+}
+
+.celsius-link:hover,
+.fahrenheit-link:hover {
+  color: #00204a;
+  font-size: 32px;
+  cursor: default;
+}
+
+.current-conditions {
+  text-transform: capitalize;
+  list-style-type: none;
+}

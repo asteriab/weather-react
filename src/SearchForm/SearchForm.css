@@ -1,0 +1,14 @@
+.input-group {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.btn-primary {
+  background-color: #00204a;
+  border-color: #00204a;
+}
+
+.btn-primary:hover {
+  border-color: #002e6b;
+  background-color: #002e6b;
+}
