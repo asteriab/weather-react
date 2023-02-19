@@ -7,7 +7,7 @@ export default function Conditions(props) {
       </li>
       <li className="wind">
         <i className="fa-solid fa-wind list-icon"></i>
-        <span id="wind"> {Math.round(props.weatherData.wind)}</span> m/s
+        <span id="wind"> {props.weatherData.wind}</span> m/s
       </li>
       <li className="humidity">
         <i className=" fa-solid fa-umbrella list-icon"></i>

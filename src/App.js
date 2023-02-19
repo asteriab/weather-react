@@ -19,14 +19,12 @@ function App(props) {
   }, [city]);
 
   function handleResponse(response) {
-    console.log(city);
-    console.log(response.data.main);
     setWeatherData({
       ...weatherData,
-      temp: response.data.main.temp,
+      temp: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
+      wind: Math.round(response.data.wind.speed),
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       city: city,
     });

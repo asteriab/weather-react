@@ -15,7 +15,7 @@ export default function CurrentData(props) {
         <img src={props.weatherData.icon} alt=""></img>
       </div>
       <div className="current-temp">
-        {Math.round(props.weatherData.temp)}
+        {props.weatherData.temp}
         <div className="units">
           <a href="/" className="celsius-link active">
             °C
