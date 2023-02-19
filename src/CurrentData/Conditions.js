@@ -7,11 +7,17 @@ export default function Conditions(props) {
       </li>
       <li className="wind">
         <i className="fa-solid fa-wind list-icon"></i>
-        <span id="wind"> {props.weatherData.wind}</span> m/s
+        <span id="wind">
+          {" "}
+          {props.weatherData.wind} {props.weatherData.wind ? "m/s" : ""}
+        </span>
       </li>
       <li className="humidity">
         <i className=" fa-solid fa-umbrella list-icon"></i>
-        <span id="humidity"> {props.weatherData.humidity}</span>%
+        <span id="humidity">
+          {" "}
+          {props.weatherData.humidity} {props.weatherData.humidity ? "%" : ""}
+        </span>
       </li>
     </ul>
   );

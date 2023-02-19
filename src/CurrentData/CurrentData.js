@@ -7,7 +7,10 @@ export default function CurrentData(props) {
   return (
     <div className="current-block">
       <div>
-        <h1 className="city">{props.weatherData.city}</h1>
+        <h1 className="city">
+          {props.weatherData.city}
+          {props.weatherData.city ? "," : ""} {props.weatherData.country}
+        </h1>
 
         <DateTime />
       </div>
