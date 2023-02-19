@@ -25,7 +25,7 @@ export default function SearchForm(props) {
         placeholder="Enter your city"
         aria-label="Enter your city"
         aria-describedby="button-addon2"
-        onKeyUp={updateCity}
+        onChange={updateCity}
       ></input>
       <button
         className="btn btn-primary location-button"

@@ -1,11 +1,12 @@
+import moment from "moment/moment";
 import React from "react";
 
 export default function DateTime() {
   return (
     <p className="DateTime">
-      <span>Saturday, Fed 4</span>
+      <span>{moment(new Date()).format("dddd, MMM D")}</span>
       <br />
-      <span>13:58</span>
+      <span>{moment(new Date()).format("HH:mm")}</span>
     </p>
   );
 }
