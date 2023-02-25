@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import SearchForm from "./SearchForm/SearchForm";
 import CurrentData from "./CurrentData/CurrentData";
 import AuthorInfo from "./AuthorInfo/AuthorInfo";
