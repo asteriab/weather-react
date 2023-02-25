@@ -21,7 +21,7 @@ const WeatherData = (props) => {
           <WeatherTemperature celsius={props.weatherInfo.temp} />
           <Conditions weatherInfo={props.weatherInfo} />
         </div>
-        <Forecast coordinates={props.weatherInfo.coordinates} />
+        <Forecast weatherInfo={props.weatherInfo} />
       </>
     );
   } else {
