@@ -1,6 +1,7 @@
 import Conditions from "./Conditions";
 import DateTime from "./DateTime";
 import "./CurrentData.css";
+import WeatherIcon from "./WeatherIcon";
 
 export default function CurrentData(props) {
   if (props.weatherData.ready) {
@@ -13,9 +14,7 @@ export default function CurrentData(props) {
 
           <DateTime />
         </div>
-        <div className="icon">
-          <img src={props.weatherData.icon} alt=""></img>
-        </div>
+        <WeatherIcon code={props.weatherData.icon} />
         <div className="current-temp">
           {props.weatherData.temp}
           <div className="units">
