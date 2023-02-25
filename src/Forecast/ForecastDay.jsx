@@ -1,15 +1,24 @@
 import WeatherIcon from "../WeatherData/WeatherIcon";
 import moment from "moment/moment";
+import ConvertToFahrenheitHelper from "../Helpers/ConvertToFahrenheitHelper";
 
 const ForecastDay = (props) => {
   const minTemperature = () => {
-    let temperature = Math.round(props.data.temp.min);
-    return `${temperature} °`;
+    let temperature =
+      props.unit === "celsius"
+        ? Math.round(props.data.temp.min)
+        : ConvertToFahrenheitHelper(props.data.temp.min);
+
+    return props.unit === "celsius" ? `${temperature}°C` : `${temperature}°F`;
   };
 
   const maxTemperature = () => {
-    let temperature = Math.round(props.data.temp.max);
-    return `${temperature} °`;
+    let temperature =
+      props.unit === "celsius"
+        ? Math.round(props.data.temp.max)
+        : ConvertToFahrenheitHelper(props.data.temp.max);
+
+    return props.unit === "celsius" ? `${temperature}°C` : `${temperature}°F`;
   };
 
   const forecastDate = () => {

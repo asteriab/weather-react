@@ -22,7 +22,7 @@ const Forecast = (props) => {
         {forecast.map((dailyForecast, index) => {
           return index > 0 && index < 6 ? (
             <div key={index}>
-              <ForecastDay data={dailyForecast} />
+              <ForecastDay data={dailyForecast} unit={props.unit} />
             </div>
           ) : (
             ""

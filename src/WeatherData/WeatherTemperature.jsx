@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ConvertToFahrenheitHelper from "../Helpers/ConvertToFahrenheitHelper";
 
 const WeatherTemperature = (props) => {
   const [unit, setUnit] = useState("celsius");
@@ -6,15 +7,17 @@ const WeatherTemperature = (props) => {
   const showFahrenheit = (event) => {
     event.preventDefault();
     setUnit("fahrenheit");
+    props.updateUnit("fahrenheit");
   };
 
   const showCelsius = (event) => {
     event.preventDefault();
     setUnit("celsius");
+    props.updateUnit("celsius");
   };
 
   const fahrenheit = () => {
-    return Math.round((props.celsius * 9) / 5 + 32);
+    return ConvertToFahrenheitHelper(props.celsius);
   };
 
   if (unit === "celsius") {
