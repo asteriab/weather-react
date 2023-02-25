@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function App(props) {
   const [city, setCity] = useState("");
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   function callApi(city) {
     setCity(city);
@@ -27,9 +27,9 @@ function App(props) {
   }, [city]);
 
   function handleResponse(response) {
-    console.log();
     setWeatherData({
       ...weatherData,
+      ready: true,
       temp: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -43,6 +43,7 @@ function App(props) {
   return (
     <div className="container">
       <SearchForm callApi={callApi} />
+
       <CurrentData weatherData={weatherData} />
       <AuthorInfo />
     </div>

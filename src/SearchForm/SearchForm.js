@@ -26,6 +26,7 @@ export default function SearchForm(props) {
         aria-label="Enter your city"
         aria-describedby="button-addon2"
         onChange={updateCity}
+        autoFocus="on"
       ></input>
       <button
         className="btn btn-primary location-button"
