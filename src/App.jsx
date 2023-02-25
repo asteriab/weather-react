@@ -1,6 +1,6 @@
 import "./App.scss";
 import SearchForm from "./SearchForm/SearchForm";
-import CurrentData from "./CurrentData/CurrentData";
+import WeatherData from "./WeatherData/WeatherData";
 import AuthorInfo from "./AuthorInfo/AuthorInfo";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function App(props) {
   const [city, setCity] = useState("");
-  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [weatherInfo, setWeatherInfo] = useState({ ready: false });
 
   function callApi(city) {
     setCity(city);
@@ -27,8 +27,8 @@ function App(props) {
   }, [city]);
 
   function handleResponse(response) {
-    setWeatherData({
-      ...weatherData,
+    setWeatherInfo({
+      ...weatherInfo,
       ready: true,
       temp: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
@@ -37,13 +37,14 @@ function App(props) {
       icon: response.data.weather[0].icon,
       city: response.data.name,
       country: response.data.sys.country,
+      coordinates: response.data.coord,
     });
   }
 
   return (
     <div className="container">
       <SearchForm callApi={callApi} />
-      <CurrentData weatherData={weatherData} />
+      <WeatherData weatherInfo={weatherInfo} />
       <AuthorInfo />
     </div>
   );

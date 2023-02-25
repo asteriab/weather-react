@@ -21,6 +21,8 @@ const WeatherIcon = (props) => {
     "50d": "514",
     "50n": "514",
   };
-  return <Icon name={codeMapping[props.code]} type="qweather" size={70} />;
+  return (
+    <Icon name={codeMapping[props.code]} type="qweather" size={props.size} />
+  );
 };
 export default WeatherIcon;
