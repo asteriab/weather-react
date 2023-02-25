@@ -22,6 +22,6 @@ export default function CurrentData(props) {
       </div>
     );
   } else {
-    return "Loading Data";
+    return "";
   }
 }

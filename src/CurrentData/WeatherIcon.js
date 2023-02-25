@@ -1,32 +1,25 @@
-import ReactAnimatedWeather from "react-animated-weather";
+import Icon from "iweather_icons_react";
 
 export default function WeatherIcon(props) {
   const codeMapping = {
-    "01d": "CLEAR_DAY",
-    "01n": "CLEAR_NIGHT",
-    "02d": "PARTLY_CLOUDY_DAY",
-    "02n": "PARTLY_CLOUDY_NIGHT",
-    "03d": "PARTLY_CLOUDY_DAY",
-    "03n": "PARTLY_CLOUDY_NIGHT",
-    "04d": "CLOUDY",
-    "04n": "CLOUDY",
-    "09d": "RAIN",
-    "09n": "RAIN",
-    "010d": "RAIN",
-    "010n": "RAIN",
-    "011d": "RAIN",
-    "011n": "RAIN",
-    "013d": "SNOW",
-    "013n": "SNOW",
-    "015d": "FOG",
-    "015n": "FOG",
+    "01d": "100",
+    "01n": "150",
+    "02d": "102",
+    "02n": "152",
+    "03d": "101",
+    "03n": "151",
+    "04d": "104",
+    "04n": "104",
+    "09d": "306",
+    "09n": "306",
+    "10d": "301",
+    "10n": "351",
+    "11d": "303",
+    "11n": "303",
+    "13d": "403",
+    "13n": "403",
+    "50d": "514",
+    "50n": "514",
   };
-  return (
-    <ReactAnimatedWeather
-      icon={codeMapping[props.code]}
-      color="blue"
-      size={64}
-      animate={true}
-    />
-  );
+  return <Icon name={codeMapping[props.code]} type="qweather" size={70} />;
 }

@@ -8,9 +8,9 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.3.3",
     "bootstrap": "^5.2.3",
+    "iweather_icons_react": "^1.1.1",
     "moment": "^2.29.4",
     "react": "^18.2.0",
-    "react-animated-weather": "^4.0.1",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
