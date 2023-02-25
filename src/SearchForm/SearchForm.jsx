@@ -17,6 +17,10 @@ const SearchForm = (props) => {
     }
   };
 
+  const getGeolocation = () => {
+    navigator.geolocation.getCurrentPosition(props.showLocationData);
+  };
+
   return (
     <form className="input-group mb-3" onSubmit={handleSubmit}>
       <input
@@ -32,6 +36,7 @@ const SearchForm = (props) => {
         className="btn btn-primary location-button"
         id="gps-location"
         type="button"
+        onClick={getGeolocation}
       >
         <i className="fa-solid fa-location-dot"></i>
       </button>

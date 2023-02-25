@@ -14,17 +14,35 @@ function App(props) {
     setCity(city);
   }
 
+  const callApiByCityName = (city) => {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7a00a4fb22b18bae5dbea39280ad220a&units=metric`;
+    axios
+      .get(apiUrl)
+      .then(handleResponse)
+      .catch((error) => {
+        alert("Enter a valid city!");
+      });
+  };
+
   useEffect(() => {
     if (city) {
-      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7a00a4fb22b18bae5dbea39280ad220a&units=metric`;
-      axios
-        .get(apiUrl)
-        .then(handleResponse)
-        .catch((error) => {
-          alert("Enter a valid city!");
-        });
+      callApiByCityName(city);
     }
   }, [city]);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(showLocationData);
+  }, []);
+
+  const getCityName = (response) => {
+    callApi(response.data[0].name);
+    // callApiByCityName(response.data[0].name);
+  };
+
+  const showLocationData = (position) => {
+    let apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&limit=1&appid=7a00a4fb22b18bae5dbea39280ad220a`;
+    axios.get(apiUrl).then(getCityName);
+  };
 
   function handleResponse(response) {
     setWeatherInfo({
@@ -43,7 +61,11 @@ function App(props) {
 
   return (
     <div className="container">
-      <SearchForm callApi={callApi} />
+      <SearchForm
+        callApi={callApi}
+        showLocationData={showLocationData}
+        city={city}
+      />
       <WeatherData weatherInfo={weatherInfo} />
       <AuthorInfo />
     </div>
