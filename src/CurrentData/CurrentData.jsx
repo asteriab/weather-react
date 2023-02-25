@@ -1,10 +1,10 @@
 import Conditions from "./Conditions";
 import DateTime from "./DateTime";
-import "./CurrentData.css";
+import "./CurrentData.scss";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 
-export default function CurrentData(props) {
+const CurrentData = (props) => {
   if (props.weatherData.ready) {
     return (
       <div className="current-block">
@@ -17,11 +17,11 @@ export default function CurrentData(props) {
         </div>
         <WeatherIcon code={props.weatherData.icon} />
         <WeatherTemperature celsius={props.weatherData.temp} />
-
         <Conditions weatherData={props.weatherData} />
       </div>
     );
   } else {
     return "";
   }
-}
+};
+export default CurrentData;

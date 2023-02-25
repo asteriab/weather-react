@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function AuthorInfo() {
+const AuthorInfo = () => {
   return (
     <p className="author-info">
       <a
@@ -12,4 +10,5 @@ export default function AuthorInfo() {
       by Mariana Balanchuk
     </p>
   );
-}
+};
+export default AuthorInfo;

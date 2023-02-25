@@ -1,21 +1,21 @@
 import { useState } from "react";
 
-export default function WeatherTemperature(props) {
+const WeatherTemperature = (props) => {
   const [unit, setUnit] = useState("celsius");
 
-  function showFahrenheit(event) {
+  const showFahrenheit = (event) => {
     event.preventDefault();
     setUnit("fahrenheit");
-  }
+  };
 
-  function showCelsius(event) {
+  const showCelsius = (event) => {
     event.preventDefault();
     setUnit("celsius");
-  }
+  };
 
-  function fahrenheit() {
+  const fahrenheit = () => {
     return Math.round((props.celsius * 9) / 5 + 32);
-  }
+  };
 
   if (unit === "celsius") {
     return (
@@ -45,4 +45,5 @@ export default function WeatherTemperature(props) {
       </div>
     );
   }
-}
+};
+export default WeatherTemperature;

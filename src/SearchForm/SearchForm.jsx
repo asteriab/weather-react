@@ -1,21 +1,21 @@
-import "./SearchForm.css";
+import "./SearchForm.scss";
 import { useState } from "react";
 
-export default function SearchForm(props) {
+const SearchForm = (props) => {
   let [city, setCity] = useState("");
 
-  function updateCity(event) {
+  const updateCity = (event) => {
     setCity(event.target.value);
-  }
+  };
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
     if (city === "") {
       return alert("Enter a city!");
     } else {
       return props.callApi(city);
     }
-  }
+  };
 
   return (
     <form className="input-group mb-3" onSubmit={handleSubmit}>
@@ -43,4 +43,5 @@ export default function SearchForm(props) {
       ></input>
     </form>
   );
-}
+};
+export default SearchForm;

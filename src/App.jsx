@@ -43,7 +43,6 @@ function App(props) {
   return (
     <div className="container">
       <SearchForm callApi={callApi} />
-
       <CurrentData weatherData={weatherData} />
       <AuthorInfo />
     </div>

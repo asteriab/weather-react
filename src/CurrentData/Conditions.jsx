@@ -1,4 +1,4 @@
-export default function Conditions(props) {
+const Conditions = (props) => {
   return (
     <ul className="current-conditions">
       <li className="conditions">
@@ -15,4 +15,5 @@ export default function Conditions(props) {
       </li>
     </ul>
   );
-}
+};
+export default Conditions;

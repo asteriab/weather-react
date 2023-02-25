@@ -1,6 +1,6 @@
 import Icon from "iweather_icons_react";
 
-export default function WeatherIcon(props) {
+const WeatherIcon = (props) => {
   const codeMapping = {
     "01d": "100",
     "01n": "150",
@@ -22,4 +22,5 @@ export default function WeatherIcon(props) {
     "50n": "514",
   };
   return <Icon name={codeMapping[props.code]} type="qweather" size={70} />;
-}
+};
+export default WeatherIcon;
