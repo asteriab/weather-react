@@ -2,6 +2,7 @@ import Conditions from "./Conditions";
 import DateTime from "./DateTime";
 import "./CurrentData.css";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function CurrentData(props) {
   if (props.weatherData.ready) {
@@ -15,18 +16,8 @@ export default function CurrentData(props) {
           <DateTime />
         </div>
         <WeatherIcon code={props.weatherData.icon} />
-        <div className="current-temp">
-          {props.weatherData.temp}
-          <div className="units">
-            <a href="/" className="celsius-link active">
-              °C
-            </a>
-            |
-            <a href="/" className="fahrenheit-link">
-              °F
-            </a>
-          </div>
-        </div>
+        <WeatherTemperature celsius={props.weatherData.temp} />
+
         <Conditions weatherData={props.weatherData} />
       </div>
     );
