@@ -4,6 +4,7 @@ import CurrentData from "./CurrentData/CurrentData";
 import AuthorInfo from "./AuthorInfo/AuthorInfo";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
 
 function App(props) {
   const [city, setCity] = useState("");
