@@ -39,7 +39,7 @@ const App = (props) => {
   };
 
   const showLocationData = (position) => {
-    let apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&limit=1&appid=7a00a4fb22b18bae5dbea39280ad220a`;
+    let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&limit=1&appid=7a00a4fb22b18bae5dbea39280ad220a`;
     axios.get(apiUrl).then(getCityName);
   };
 
