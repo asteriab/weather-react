@@ -6,13 +6,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-function App(props) {
+const App = (props) => {
   const [city, setCity] = useState("");
   const [weatherInfo, setWeatherInfo] = useState({ ready: false });
 
-  function callApi(city) {
+  const callApi = (city) => {
     setCity(city);
-  }
+  };
 
   const callApiByCityName = (city) => {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7a00a4fb22b18bae5dbea39280ad220a&units=metric`;
@@ -43,7 +43,7 @@ function App(props) {
     axios.get(apiUrl).then(getCityName);
   };
 
-  function handleResponse(response) {
+  const handleResponse = (response) => {
     setWeatherInfo({
       ...weatherInfo,
       ready: true,
@@ -56,7 +56,7 @@ function App(props) {
       country: response.data.sys.country,
       coordinates: response.data.coord,
     });
-  }
+  };
 
   return (
     <div className="container">
@@ -69,6 +69,6 @@ function App(props) {
       <AuthorInfo />
     </div>
   );
-}
+};
 
 export default App;
