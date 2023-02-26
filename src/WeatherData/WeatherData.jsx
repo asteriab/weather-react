@@ -15,24 +15,35 @@ const WeatherData = (props) => {
 
   if (props.weatherInfo.ready) {
     return (
-      <>
+      <div className="weather-data">
         <div className="current-block">
           <div>
             <h1 className="city">
               {props.weatherInfo.city}, {props.weatherInfo.country}
             </h1>
-
             <DateTime />
           </div>
-          <WeatherIcon code={props.weatherInfo.icon} size={70} />
-          <WeatherTemperature
-            celsius={props.weatherInfo.temp}
-            updateUnit={updateUnit}
-          />
-          <Conditions weatherInfo={props.weatherInfo} />
+
+          <div className="current-weather-data">
+            <div className="temp-icon-wrap">
+              <div className="main-weather-icon">
+                <WeatherIcon
+                  code={props.weatherInfo.icon}
+                  alt={props.weatherInfo.description}
+                />
+              </div>
+              <WeatherTemperature
+                celsius={props.weatherInfo.temp}
+                updateUnit={updateUnit}
+              />
+            </div>
+            <Conditions weatherInfo={props.weatherInfo} />
+          </div>
         </div>
-        <Forecast weatherInfo={props.weatherInfo} unit={unit} />
-      </>
+        <div className="forecast">
+          <Forecast weatherInfo={props.weatherInfo} unit={unit} />
+        </div>
+      </div>
     );
   } else {
     return "";

@@ -1,5 +1,6 @@
 import "./SearchForm.scss";
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const SearchForm = (props) => {
   let [city, setCity] = useState("");

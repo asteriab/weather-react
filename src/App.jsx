@@ -36,7 +36,6 @@ function App(props) {
 
   const getCityName = (response) => {
     callApi(response.data[0].name);
-    // callApiByCityName(response.data[0].name);
   };
 
   const showLocationData = (position) => {

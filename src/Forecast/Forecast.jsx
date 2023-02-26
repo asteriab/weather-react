@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import "./Forecast.scss";
 import ForecastDay from "./ForecastDay";
 
 const Forecast = (props) => {
@@ -18,17 +18,17 @@ const Forecast = (props) => {
 
   if (forecastReady) {
     return (
-      <div className="forecast">
+      <>
         {forecast.map((dailyForecast, index) => {
           return index > 0 && index < 6 ? (
-            <div key={index}>
+            <div key={index} className="forecast-day">
               <ForecastDay data={dailyForecast} unit={props.unit} />
             </div>
           ) : (
             ""
           );
         })}
-      </div>
+      </>
     );
   } else {
     let apiURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${props.weatherInfo.coordinates.lat}&lon=${props.weatherInfo.coordinates.lon}&appid=7a00a4fb22b18bae5dbea39280ad220a&units=metric`;

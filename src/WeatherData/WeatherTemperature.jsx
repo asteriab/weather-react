@@ -25,8 +25,8 @@ const WeatherTemperature = (props) => {
       <div className="current-temp">
         {props.celsius}
         <div className="units">
-          <span className="celsius-link">°C</span>|
-          <a href="/" className="fahrenheit-link" onClick={showFahrenheit}>
+          <span className="unit-link">°C</span>|
+          <a href="/" className="unit-link" onClick={showFahrenheit}>
             °F
           </a>
         </div>
@@ -37,11 +37,11 @@ const WeatherTemperature = (props) => {
       <div className="current-temp">
         {fahrenheit()}
         <div className="units">
-          <a href="/" className="celsius-link" onClick={showCelsius}>
+          <a href="/" className="unit-link" onClick={showCelsius}>
             °C
           </a>
           |
-          <span href="/" className="fahrenheit-link">
+          <span href="/" className="unit-link">
             °F
           </span>
         </div>

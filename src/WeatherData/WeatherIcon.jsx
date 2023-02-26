@@ -1,28 +1,28 @@
-import Icon from "iweather_icons_react";
-
 const WeatherIcon = (props) => {
   const codeMapping = {
-    "01d": "100",
-    "01n": "150",
-    "02d": "102",
-    "02n": "152",
-    "03d": "101",
-    "03n": "151",
-    "04d": "104",
-    "04n": "104",
-    "09d": "306",
-    "09n": "306",
-    "10d": "301",
-    "10n": "351",
-    "11d": "303",
-    "11n": "303",
-    "13d": "403",
-    "13n": "403",
-    "50d": "514",
-    "50n": "514",
+    "01d": "clear-day",
+    "01n": "clear-night",
+    "02d": "partly-cloudy-day",
+    "02n": "partly-cloudy-night",
+    "03d": "overcast-day",
+    "03n": "overcast-night",
+    "04d": "overcast",
+    "04n": "overcast",
+    "09d": "rain",
+    "09n": "rain",
+    "10d": "partly-cloudy-day-rain",
+    "10n": "partly-cloudy-night-rain",
+    "11d": "thunderstorms-rain",
+    "11n": "thunderstorms-night-rain",
+    "13d": "snow",
+    "13n": "partly-cloudy-night-snow",
+    "50d": "fog",
+    "50n": "fog-night",
   };
-  return (
-    <Icon name={codeMapping[props.code]} type="qweather" size={props.size} />
-  );
+
+  let imgUrl = `https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/${
+    codeMapping[props.code]
+  }.svg`;
+  return <img src={imgUrl} alt={props.alt}></img>;
 };
 export default WeatherIcon;

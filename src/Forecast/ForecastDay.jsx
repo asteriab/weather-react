@@ -1,6 +1,7 @@
 import WeatherIcon from "../WeatherData/WeatherIcon";
 import moment from "moment/moment";
 import ConvertToFahrenheitHelper from "../Helpers/ConvertToFahrenheitHelper";
+import "./Forecast.scss";
 
 const ForecastDay = (props) => {
   const minTemperature = () => {
@@ -9,7 +10,7 @@ const ForecastDay = (props) => {
         ? Math.round(props.data.temp.min)
         : ConvertToFahrenheitHelper(props.data.temp.min);
 
-    return props.unit === "celsius" ? `${temperature}°C` : `${temperature}°F`;
+    return `${temperature}°`;
   };
 
   const maxTemperature = () => {
@@ -18,7 +19,7 @@ const ForecastDay = (props) => {
         ? Math.round(props.data.temp.max)
         : ConvertToFahrenheitHelper(props.data.temp.max);
 
-    return props.unit === "celsius" ? `${temperature}°C` : `${temperature}°F`;
+    return `${temperature}°`;
   };
 
   const forecastDate = () => {
@@ -30,13 +31,18 @@ const ForecastDay = (props) => {
 
   return (
     <>
-      <div>{forecastDate()}</div>
-      <div>
-        <WeatherIcon code={props.data.weather[0].icon} size={36} />
+      <div className="forecast-icon">
+        <WeatherIcon
+          code={props.data.weather[0].icon}
+          alt={props.data.weather[0].description}
+        />
       </div>
       <div>
-        <span>{minTemperature()}</span>
-        <span> {maxTemperature()}</span>
+        <div className="forecast-date">{forecastDate()}</div>
+        <div className="forecast-temperatures">
+          <span>{minTemperature()}</span>
+          <span> {maxTemperature()}</span>
+        </div>
       </div>
     </>
   );
