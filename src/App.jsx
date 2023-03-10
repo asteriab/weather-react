@@ -10,10 +10,6 @@ const App = (props) => {
   const [city, setCity] = useState("");
   const [weatherInfo, setWeatherInfo] = useState({ ready: false });
 
-  const callApi = (city) => {
-    setCity(city);
-  };
-
   const callApiByCityName = (city) => {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7a00a4fb22b18bae5dbea39280ad220a&units=metric`;
     axios
@@ -25,17 +21,12 @@ const App = (props) => {
   };
 
   useEffect(() => {
-    if (city) {
-      callApiByCityName(city);
-    }
-  }, [city]);
-
-  useEffect(() => {
     navigator.geolocation.getCurrentPosition(showLocationData);
   }, []);
 
   const getCityName = (response) => {
-    callApi(response.data[0].name);
+    setCity(city);
+    callApiByCityName(response.data[0].name);
   };
 
   const showLocationData = (position) => {
@@ -44,6 +35,7 @@ const App = (props) => {
   };
 
   const handleResponse = (response) => {
+    setCity(response.data.name);
     setWeatherInfo({
       ...weatherInfo,
       ready: true,
@@ -61,7 +53,8 @@ const App = (props) => {
   return (
     <div className="container">
       <SearchForm
-        callApi={callApi}
+        setCity={setCity}
+        callApiByCityName={callApiByCityName}
         showLocationData={showLocationData}
         city={city}
       />
